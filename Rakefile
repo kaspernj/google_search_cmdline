@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "google_search_cmdline"
   gem.homepage = "http://github.com/kaspernj/google_search_cmdline"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A small app for doing Google searches and showing the results on the command line.}
+  gem.description = %Q{A small app for doing Google searches and showing the results on the command line.}
   gem.email = "k@spernj.org"
   gem.authors = ["Kasper Johansen"]
   # dependencies defined in Gemfile
