@@ -7,7 +7,7 @@ describe "GoogleSearchCmdline" do
     raise "Expected 10 results but got #{res.length}." if res.length != 10
   end
   
-  it "should be able to start a interface and do handle commands correctly" do
+  it "should be able to start a interface and handle commands correctly" do
     #Using TCPSocket's to test the interface.
     require "socket"
     
