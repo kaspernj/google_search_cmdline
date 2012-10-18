@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Kasper Johansen"]
   s.date = %q{2012-10-18}
   s.default_executable = %q{google_search_cmdline.rb}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{A small app for doing Google searches and showing the results on the command line.}
   s.email = %q{k@spernj.org}
   s.executables = ["google_search_cmdline.rb"]
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/google_search_cmdline.rb",
+    "google_search_cmdline.gemspec",
     "lib/google_search_cmdline.rb",
     "lib/google_search_cmdline_interface.rb",
     "lib/google_search_cmdline_result.rb",
@@ -38,7 +39,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{A small app for doing Google searches and showing the results on the command line.}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
