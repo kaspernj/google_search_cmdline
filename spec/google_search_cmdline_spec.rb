@@ -4,14 +4,14 @@ describe "GoogleSearchCmdline" do
   it "should be able to execute Google-searches" do
     gsc = Google_search_cmdline.new
     res = gsc.search("kasper").to_a
-    
     raise "Expected 10 results but got #{res.length}." if res.length != 10
   end
   
-  it "should be able to start a interface and do various commands" do
+  it "should be able to start a interface and do handle commands correctly" do
+    #Using TCPSocket's to test the interface.
     require "socket"
     
-    puts "Starting socket-server."
+    puts "Starting socket-server, client and connection."
     tcpserver = TCPServer.new("localhost", 0)
     tcpclient = TCPSocket.new("localhost", tcpserver.addr[1])
     tcpserverc = tcpserver.accept
