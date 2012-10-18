@@ -38,20 +38,27 @@ class Google_search_cmdline::Interface
     @io_out.puts "Welcome to Google Search Cmdline."
     
     @io_in.each_line do |line_full|
-      line = line_full[0, line_full.length - 1]
-      puts "Got line: '#{line}'." if @args[:debug]
-      
-      if match = line.match(/^search\s+(.+)$/)
-        @io_out.puts "Searching - please wait..."
-        search_text = match[1]
-        results = @gsc.search(search_text)
-        self.cmd_search(results)
-      elsif direct_cmds.include?(line)
-        self.__send__("cmd_#{line}")
-      elsif line.to_s.strip.empty?
-        #ignore.
-      else
-        @io_out.puts "Can't understand that command: '#{line}'. Try 'help' to see available commands."
+      begin
+        line = line_full[0, line_full.length - 1]
+        puts "Got line: '#{line}'." if @args[:debug]
+        
+        if match = line.match(/^search\s+(.+)$/)
+          @io_out.puts "Searching - please wait..."
+          search_text = match[1]
+          results = @gsc.search(search_text)
+          self.cmd_search(results)
+        elsif direct_cmds.include?(line)
+          self.__send__("cmd_#{line}")
+        elsif line.to_s.strip.empty?
+          #ignore.
+        else
+          @io_out.puts "Can't understand that command: '#{line}'. Try 'help' to see available commands."
+        end
+      rescue => e
+        @io_out.puts "An error occurred: '#{e.message}'."
+        @io_out.puts "Backtrace:"
+        @io_out.puts e.backtrace.join("\n")
+        @io_out.puts ""
       end
     end
   end
